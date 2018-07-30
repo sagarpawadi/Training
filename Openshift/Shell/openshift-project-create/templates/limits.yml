@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Template
+metadata:
+  creationTimestamp: null
+  name: limits
+objects:
+- apiVersion: v1
+  kind: LimitRange
+  metadata: 
+    name: compute
+    creationTimestamp: null
+    namespace: ${NAMESPACE}
+  spec: 
+    limits: 
+      - 
+        type: Pod
+        max: 
+          cpu: ${HARD_CPU}
+          memory: ${HARD_MEMORY}
+        min: 
+          cpu: 10m
+          memory: 100Mi
+      - 
+        type: Container
+        max: 
+          cpu: ${HARD_CPU}
+          memory: ${HARD_MEMORY}
+        min: 
+          cpu: 10m
+          memory: 100Mi
+        default: 
+          cpu: 10m
+          memory: 100Mi
+parameters:
+- name: NAMESPACE
+- name: HARD_CPU
+- name: HARD_MEMORY 

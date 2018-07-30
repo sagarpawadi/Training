@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Template
+metadata:
+  creationTimestamp: null
+  name: quotas
+objects:
+- apiVersion: v1
+  kind: ResourceQuota
+  metadata: 
+    name: compute
+    namespace: ${NAMESPACE}
+  spec: 
+    hard: 
+      memory: ${HARD_MEMORY}
+      cpu: ${HARD_CPU}
+parameters:
+- name: NAMESPACE
+- name: HARD_MEMORY
+- name: HARD_CPU
