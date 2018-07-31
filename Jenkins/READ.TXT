@@ -1,3 +1,22 @@
 >> Install Jenkins
     https://www.vultr.com/docs/how-to-install-jenkins-on-centos-7
 
+>> Password
+    /var/lib/jenkins/secrets/initialAdminPassword.
+    
+
+
+cd /var/lib/jenkins/certificates
+
+openssl genrsa -out diagserverCA.key 2048
+
+
+openssl req -x509 -new -nodes -key diagserverCA.key -sha256 -days 1024 -out diagserverCA.pem
+ 
+openssl pkcs12 -export -name server-cert -in diagserverCA.pem -inkey diagserverCA.key -out serverkeystore.p12
+
+keytool -importkeystore -destkeystore server.keystore -srckeystore serverkeystore.p12 -srcstoretype pkcs12 
+
+keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12
+
+keytool -importkeystore -srckeystore server.keystore -srcstoretype pkcs12 -destkeystore newjkskeystore.jks -deststoretype JKS
