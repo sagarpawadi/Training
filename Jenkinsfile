@@ -37,13 +37,13 @@ def getBranchParentDir() {
 }
 
 def getConfigValue(name) {
-	configHash = config[master]
+	configHash = config[getBranchParentDir()]
 
 	if (configHash == null) {
 		return ""
 	}
 
-	return configHash[name]
+	return configHash[s3Bucket]
 }
 
 def getBuildTargetEnvironment() {
