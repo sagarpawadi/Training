@@ -10,11 +10,11 @@ config = [
 	],
 	"release": [
 		"target_environment": "qa",
-		"s3Bucket": "rgis-rschedule-ml-lambda-qa"
-		"lambda_function": "ml-aset-recommendation-qa",
+		"s3Bucket": "rgis-rschedule-ml-lambda-qa",
+		"lambda_function": "ml-aset-recommendation-qa"
 	],
 	"master": [
-		"target_environment": "master"
+		"target_environment": "master",
 		"s3Bucket": "rgis-rschedule-ml-lambda-prod",
 		"lambda_function": "ml-aset-recommendation-prod"
 		]
