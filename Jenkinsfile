@@ -70,11 +70,13 @@ pipeline {
         	when {
         		anyOf {
         			branch "develop"
-                    branch "release/*"
+                    		branch "release/*"
+				branch "master"
         		}
         	}
             steps {
 		 gets3BucketName()
+		    
                 echo $s3Bucket
                 
             }
