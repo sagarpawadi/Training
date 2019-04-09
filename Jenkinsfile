@@ -32,7 +32,8 @@ def getConfigValue(name) {
     configHash = config[getBranchParentDir()]
 
     if (configHash == null) {
-        return "nothing to worry"
+        echo " nothing to worry"
+        return ""
     }
 
     return configHash[name]
