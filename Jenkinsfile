@@ -5,17 +5,17 @@ productName = "rschedule-ml-aset-reclist"
 config = [
 	"develop": [
 		"target_environment": "dev",
-		"s3Bucket": "rgis-rschedule-ml-lambda-dev"
+		"s3Bucket": "rgis-rschedule-ml-lambda-dev",
 		"lambda_function": "ml-aset-recommendation-dev"
 	],
 	"release": [
 		"target_environment": "qa",
 		"s3Bucket": "rgis-rschedule-ml-lambda-qa"
-		"lambda_function": "ml-aset-recommendation-qa"
+		"lambda_function": "ml-aset-recommendation-qa",
 	],
 	"master": [
 		"target_environment": "master"
-		"s3Bucket": "rgis-rschedule-ml-lambda-prod"
+		"s3Bucket": "rgis-rschedule-ml-lambda-prod",
 		"lambda_function": "ml-aset-recommendation-prod"
 		]
 	]
