@@ -71,6 +71,7 @@ pipeline {
             steps {
 		echo "fck"
                sh "echo ${gets3BucketName()}"
+		sh "echo  master[lambda_function]"
             }
         }
     }
