@@ -34,8 +34,8 @@ def getConfigValue(name) {
     if (configHash == null) {
         return ""
     }
-    echo " nothing to worry"
     return configHash[name]
+    echo $return
 }
 
 def getBuildTargetEnvironment() {
