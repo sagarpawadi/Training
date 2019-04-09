@@ -23,7 +23,7 @@ config = [
 
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
-	echo $rawBranch
+	echo env.BRANCH_NAME
     startIndex = rawBranch.indexOf('/')
 	echo $startIndex
     if (startIndex == -1) {
