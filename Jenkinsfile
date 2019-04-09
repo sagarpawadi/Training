@@ -75,8 +75,8 @@ pipeline {
         		}
         	}
             steps {
-                echo ${gets3BucketName()}
-                echo ${getLambdaFunction()}
+                "echo "${gets3BucketName()}""
+                "echo "${getLambdaFunction()}""
             }
         }
     }
