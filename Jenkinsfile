@@ -70,8 +70,7 @@ pipeline {
         	when {
         		anyOf {
         			branch "develop"
-                    branch "release/*"
-                    branch "master"
+                    branch "release/*
         		}
         	}
             steps {
