@@ -69,7 +69,7 @@ pipeline {
         	}
             steps {
 		echo "fck"
-                getBranchParentDir()
+               sh "echo ${gets3BucketName()}"
             }
         }
     }
