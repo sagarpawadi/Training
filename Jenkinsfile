@@ -1,28 +1,20 @@
-// The name of the product. Assumed to be the name of the Git repo. Also used in creating the messages for sending to the Slack channel.
-productName = "rschedule-ml-aset-reclist"
-
-// The root URL of the Git repo. Combined with the productName above to create the entire Git repo URL.
-gitRootUrl = "ssh://bitbucket.org/rgisllc"
-
-
 config = [
-	"develop": [
-		"target_environment": "dev",
-		"s3Bucket": "rgis-rschedule-ml-lambda-dev",
-		"lambda_function": "ml-aset-recommendation-dev"
-	],
-	"release": [
-		"target_environment": "qa",
-		"s3Bucket": "rgis-rschedule-ml-lambda-qa",
-		"lambda_function": "ml-aset-recommendation-qa"
-	],
-	"master": [
-		"target_environment": "master",
-		"s3Bucket": "rgis-rschedule-ml-lambda-prod",
-		"lambda_function": "ml-aset-recommendation-prod"
-		]
-	]
-
+    "develop": [
+        "target_environment": "dev",
+        "s3Bucket": "rgis-rschedule-ml-lambda-dev",
+        "lambda_function": "ml-aset-recommendation-dev"
+    ],
+    "release": [
+        "target_environment": "qa",
+        "s3Bucket": "rgis-rschedule-ml-lambda-qa",
+        "lambda_function": "ml-aset-recommendation-qa"
+    ],
+  "master": [
+    "target_environment": "master",
+        "s3Bucket": "rgis-rschedule-ml-lambda-prod",
+        "lambda_function": "ml-aset-recommendation-prod"
+  ]
+]
 
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
@@ -37,31 +29,31 @@ def getBranchParentDir() {
 }
 
 def getConfigValue(name) {
-	configHash = config[getBranchParentDir()]
+    configHash = config[getBranchParentDir()]
 
-	if (configHash == null) {
-		return ""
-	}
+    if (configHash == null) {
+        return ""
+    }
 
-	return configHash[s3Bucket]
+    return configHash[name]
 }
 
 def getBuildTargetEnvironment() {
-	environment = getConfigValue("target_environment")
+    environment = getConfigValue("target_environment")
 
-	if (environment == null || environment == "") {
-		return "dev"
-	}
+    if (environment == null || environment == "") {
+        return "dev"
+    }
 
-	return environment
+    return environment
 }
 
 def gets3BucketName() {
-	s3Bucket = getConfigValue("s3Bucket")
+    s3Bucket = getConfigValue("s3Bucket")
 }
 
 def getLambdaFunction() {
-	lambdaFunction = getConfigValue("lambda_function")
+    lambdaFunction = getConfigValue("lambda_function")
 }
 
 def dockerCleanup() {
@@ -69,6 +61,7 @@ def dockerCleanup() {
 
     sh 'docker rmi -f rschedulereclist:latest'
 }
+
 
 
 pipeline {
