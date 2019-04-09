@@ -75,9 +75,7 @@ pipeline {
         		}
         	}
             steps {
-		 gets3BucketName()
-		    
-                echo $s3Bucket
+		sh "echo ${gets3BucketName()}"
                 
             }
         }
