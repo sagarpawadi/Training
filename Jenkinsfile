@@ -25,7 +25,7 @@ def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
 	echo $rawBranch
     startIndex = rawBranch.indexOf('/')
-
+	echo $startIndex
     if (startIndex == -1) {
         return rawBranch
     }
@@ -76,7 +76,7 @@ pipeline {
         	}
             steps {
 		echo "fck"
-                
+                getBranchParentDir()
             }
         }
     }
