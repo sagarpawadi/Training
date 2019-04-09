@@ -23,7 +23,7 @@ config = [
 
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
-
+	echo $rawBranch
     startIndex = rawBranch.indexOf('/')
 
     if (startIndex == -1) {
@@ -75,7 +75,7 @@ pipeline {
         		}
         	}
             steps {
-		sh "echo ${gets3BucketName()}"
+		echo "fck"
                 
             }
         }
