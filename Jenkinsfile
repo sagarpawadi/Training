@@ -24,6 +24,7 @@ config = [
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
 	echo env.BRANCH_NAME
+	return rawBranch
 }
 
 def getConfigValue(name) {
