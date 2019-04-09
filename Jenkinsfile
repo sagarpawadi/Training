@@ -74,19 +74,6 @@ def dockerCleanup() {
 pipeline {
     agent any
     stages {
-        stage('Build') {
-        	when {
-        		anyOf {
-        			branch "develop"
-                    branch "release/*"
-                    branch "master"
-        		}
-        	}
-            steps {
-                sh "docker build -t rschedulereclist:latest -f deploy/Dockerfile ."
-            }
-        }
-
         stage('Publish') {
         	when {
         		anyOf {
