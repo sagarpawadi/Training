@@ -55,8 +55,10 @@ def gets3BucketName() {
 }
 
 def getLambdaFunction() {
-    // lambdaFunction = getConfigValue("lambda_function")
-    echo config["master"]["lambda_function"]
+    lambdaFunction = getConfigValue("lambda_function")
+    echo "lambdaFunction 01"
+    echo lambdaFunction
+    //echo config["master"]["lambda_function"]
 }
 
 def dockerCleanup() {
