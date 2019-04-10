@@ -53,6 +53,7 @@ def getLambdaFunction() {
     lambdaFunction = getConfigValue("lambda_function")
     echo "lambdaFunction 01"
     echo lambdaFunction
+    return lambdaFunction
     //echo config["master"]["lambda_function"]
 }
 
