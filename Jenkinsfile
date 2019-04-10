@@ -19,12 +19,12 @@ config = [
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
     startIndex = rawBranch.indexOf('/')
-     echo startIndex
+    
     if (startIndex == -1) {
         return rawBranch
       }
 
-    return rawBranch.substring(0, startIndex)
+    return rawBranch
 }
 
 def getConfigValue(name) {
