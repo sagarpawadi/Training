@@ -1,3 +1,9 @@
+// The name of the product. Assumed to be the name of the Git repo. Also used in creating the messages for sending to the Slack channel.
+productName = "rschedule-ml-aset-reclist"
+
+// The root URL of the Git repo. Combined with the productName above to create the entire Git repo URL.
+gitRootUrl = "ssh://bitbucket.org/rgisllc"
+
 config = [
     "develop": [
         "target_environment": "dev",
@@ -18,31 +24,36 @@ config = [
 
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
+
     startIndex = rawBranch.indexOf('/')
-    
+
     if (startIndex == -1) {
         return rawBranch
-      }
+    }
+
     return rawBranch.substring(0, startIndex)
 }
 
 def getConfigValue(name) {
-    configHash = config[getBranchParentDir()]
-    if (configHash == null) {
-        return ""
-    }
-    echo configHash[name]
-    return configHash[name]
+	configHash = config[getBranchParentDir()]
+
+	if (configHash == null) {
+		return ""
+	}
+
+	return configHash[name]
 }
 
 def getBuildTargetEnvironment() {
-    environment = getConfigValue("target_environment")
+	environment = getConfigValue("target_environment")
 
-    if (environment == null || environment == "") {
-        return "dev"
-    }
+	if (environment == null || environment == "") {
+		return "dev"
+	}
 
-    return environment
+	return environment
+}
+
 def gets3BucketName() {
 	s3Bucket = getConfigValue("s3Bucket")
     return s3Bucket
@@ -54,11 +65,8 @@ def getLambdaFunction() {
 }
 
 def dockerCleanup() {
-
-
     sh 'docker rmi -f rschedulereclist:latest'
 }
-
 
 
 pipeline {
@@ -73,7 +81,7 @@ pipeline {
         		}
         	}
             steps {
-                sh "./deploy.sh ${gets3BucketName()}"
+                sh "echo ${getLambdaFunction()}"
             }
         }
     }
