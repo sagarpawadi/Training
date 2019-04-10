@@ -21,20 +21,14 @@ def getBranchParentDir() {
     startIndex = rawBranch.indexOf('/')
     
     if (startIndex == -1) {
-        echo "getBranchParentDir 1"
-        echo rawBranch
         return rawBranch
       }
-    echo "getBranchParentDir 2"
-    echo rawBranch.substring(0, startIndex) 
     return rawBranch.substring(0, startIndex)
 }
 
 def getConfigValue(name) {
     configHash = config[getBranchParentDir()]
-    echo "getConfigValue"
     if (configHash == null) {
-        echo "confighash is null"
         return ""
     }
     echo configHash[name]
@@ -82,7 +76,7 @@ pipeline {
         		}
         	}
             steps {
-                echo ${getLambdaFunction()}
+                sh "echo ${getLambdaFunction()}"
             }
         }
     }
