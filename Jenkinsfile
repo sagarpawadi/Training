@@ -33,7 +33,6 @@ def getBranchParentDir() {
 def getConfigValue(name) {
     configHash = config[getBranchParentDir()]
     echo "getConfigValue"
-    echo configHash
     if (configHash == null) {
         return ""
     }
