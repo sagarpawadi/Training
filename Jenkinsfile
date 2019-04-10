@@ -19,9 +19,8 @@ config = [
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
     startIndex = rawBranch.indexOf('/')
-
+     echo startIndex
     if (startIndex == -1) {
-        echo rawBranch
         return rawBranch
       }
 
