@@ -1,8 +1,3 @@
-// The name of the product. Assumed to be the name of the Git repo. Also used in creating the messages for sending to the Slack channel.
-productName = "rschedule-ml-aset-reclist"
-
-// The root URL of the Git repo. Combined with the productName above to create the entire Git repo URL.
-gitRootUrl = "ssh://bitbucket.org/rgisllc"
 
 config = [
     "develop": [
