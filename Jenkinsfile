@@ -21,15 +21,19 @@ def getBranchParentDir() {
     startIndex = rawBranch.indexOf('/')
     
     if (startIndex == -1) {
+        echo "getBranchParentDir 1"
+        echo rawBranch
         return rawBranch
       }
-
-    return rawBranch
+    echo "getBranchParentDir 2"
+    echo rawBranch.substring(0, startIndex) 
+    return rawBranch.substring(0, startIndex)
 }
 
 def getConfigValue(name) {
     configHash = config[getBranchParentDir()]
-
+    echo "getConfigValue"
+    echo configHash
     if (configHash == null) {
         return ""
     }
