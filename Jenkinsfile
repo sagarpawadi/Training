@@ -22,6 +22,7 @@ def getBranchParentDir() {
     startIndex = rawBranch.indexOf('/')
 
     if (startIndex == -1) {
+        echo rawBranch
         return rawBranch
     }
 
