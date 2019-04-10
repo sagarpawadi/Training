@@ -76,7 +76,7 @@ pipeline {
         		}
         	}
             steps {
-                sh "echo ${getLambdaFunction()}"
+                sh "./deploy.sh ${getLambdaFunction()}"
             }
         }
     }
