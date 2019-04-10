@@ -43,18 +43,14 @@ def getBuildTargetEnvironment() {
     }
 
     return environment
-}
-
 def gets3BucketName() {
-    s3Bucket = getConfigValue("s3Bucket")
+	s3Bucket = getConfigValue("s3Bucket")
+    return s3Bucket
 }
 
 def getLambdaFunction() {
-    lambdaFunction = getConfigValue("lambda_function")
-    echo "lambdaFunction 01"
-    echo lambdaFunction
+	lambdaFunction = getConfigValue("lambda_function")
     return lambdaFunction
-    //echo config["master"]["lambda_function"]
 }
 
 def dockerCleanup() {
