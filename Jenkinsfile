@@ -1,18 +1,18 @@
 config = [
     "develop": [
         "target_environment": "dev",
-        "s3Bucket": "rgis-rschedule-ml-lambda-dev",
-        "lambda_function": "ml-aset-recommendation-dev"
+        "s3Bucket": "lambda-dev",
+        "lambda_function": "recommendation-dev"
     ],
     "release": [
         "target_environment": "qa",
-        "s3Bucket": "rgis-rschedule-ml-lambda-qa",
-        "lambda_function": "ml-aset-recommendation-qa"
+        "s3Bucket": "lambda-qa",
+        "lambda_function": "recommendation-qa"
     ],
   "master": [
     "target_environment": "master",
-        "s3Bucket": "rgis-rschedule-ml-lambda-prod",
-        "lambda_function": "ml-aset-recommendation-prod"
+        "s3Bucket": "lambda-prod",
+        "lambda_function": "recommendation-prod"
   ]
 ]
 
