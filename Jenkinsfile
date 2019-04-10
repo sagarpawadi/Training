@@ -29,7 +29,7 @@ def getBranchParentDir() {
 }
 
 def getConfigValue(name) {
-    configHash = config[getBranchParentDir()]
+    configHash = config["master"]
 
     if (configHash == null) {
         return ""
