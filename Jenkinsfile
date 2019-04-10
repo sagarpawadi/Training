@@ -34,6 +34,7 @@ def getConfigValue(name) {
     configHash = config[getBranchParentDir()]
     echo "getConfigValue"
     if (configHash == null) {
+        echo "confighash is null"
         return ""
     }
     return configHash[name]
