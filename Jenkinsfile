@@ -73,7 +73,7 @@ pipeline {
         		}
         	}
             steps {
-                sh "./deploy.sh ${getLambdaFunction()}"
+                sh "./deploy.sh ${gets3BucketName()}"
             }
         }
     }
