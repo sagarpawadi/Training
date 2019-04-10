@@ -82,7 +82,7 @@ pipeline {
         		}
         	}
             steps {
-                sh "echo ${getLambdaFunction()}"
+                echo ${getLambdaFunction()}
             }
         }
     }
