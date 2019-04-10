@@ -18,25 +18,23 @@ config = [
 
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
-    echo env.BRANCH_NAME
+
     startIndex = rawBranch.indexOf('/')
-    
+
     if (startIndex == -1) {
         return rawBranch
-        echo rawBranch
     }
 
     return rawBranch.substring(0, startIndex)
 }
 
 def getConfigValue(name) {
-    configHash = config["master"]
+    configHash = config[getBranchParentDir()]
 
     if (configHash == null) {
         return ""
     }
     return configHash[name]
-    echo $return
 }
 
 def getBuildTargetEnvironment() {
