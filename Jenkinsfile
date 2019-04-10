@@ -37,6 +37,7 @@ def getConfigValue(name) {
         echo "confighash is null"
         return ""
     }
+    echo configHash[name]
     return configHash[name]
 }
 
