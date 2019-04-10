@@ -18,12 +18,12 @@ config = [
 
 def getBranchParentDir() {
     rawBranch = env.BRANCH_NAME
-
     startIndex = rawBranch.indexOf('/')
 
     if (startIndex == -1) {
+        echo rawBranch
         return rawBranch
-    }
+      }
 
     return rawBranch.substring(0, startIndex)
 }
